@@ -8,16 +8,22 @@ import org.junit.jupiter.api.Test;
 @DisplayName("Test Math Operations in SimpleMath class")
 class SimpleMathTest {
 
-	SimpleMath math = new SimpleMath();
+	//BDD style - AAA
 	
 	@Test
 	@DisplayName("Test 6.2 + 2 = 8")
 	void testSum_SixDotTwoPlusTwo_ShouldReturnEight() {
+
+		//Given / Arrange
+		SimpleMath math = new SimpleMath();
 		double firstNumber = 6.2D;
 		double secondNumber = 2D;
-		Double result = math.sum(firstNumber, secondNumber);
 		Double expected = 8.2D;
 		
+		//When / Act
+		Double result = math.sum(firstNumber, secondNumber);
+		
+		//Then / Assert
 		assertEquals(expected, result, () -> firstNumber + " + " + secondNumber + "did not produce 8.2");
 		assertNotEquals(9.2, result);
 		assertNotNull(result);
@@ -26,6 +32,8 @@ class SimpleMathTest {
 	@Test
 	@DisplayName("Test 6.2 - 2 = 4.2")
 	void testSubtraction() {
+		
+		SimpleMath math = new SimpleMath();
 		double firstNumber = 6.2D;
 		double secondNumber = 2D;
 		Double result = math.subtraction(firstNumber, secondNumber);
@@ -39,6 +47,7 @@ class SimpleMathTest {
 	@Test
 	@DisplayName("Test 6.2 * 2 = 12.4")
 	void testMultiplication() {
+		SimpleMath math = new SimpleMath();
 		double firstNumber = 6.2D;
 		double secondNumber = 2D;
 		Double result = math.multiplication(firstNumber, secondNumber);
@@ -52,6 +61,7 @@ class SimpleMathTest {
 	@Test
 	@DisplayName("Test 6.2 / 2 = 3.1")
 	void testDivision() {
+		SimpleMath math = new SimpleMath();
 		double firstNumber = 6.2D;
 		double secondNumber = 2D;
 		Double result = math.division(firstNumber, secondNumber);
@@ -67,6 +77,7 @@ class SimpleMathTest {
 	@Test
 	@DisplayName("Test (6.2 + 2)/2 = 4.1")
 	void testMean() {
+		SimpleMath math = new SimpleMath();
 		double firstNumber = 6.2D;
 		double secondNumber = 2D;
 		Double result = math.mean(firstNumber, secondNumber);
@@ -80,6 +91,7 @@ class SimpleMathTest {
 	@Test
 	@DisplayName("Test sqrt(16) = 4")
 	void testSquareRoot() {
+		SimpleMath math = new SimpleMath();
 		double firstNumber = 16D;
 		Double result = math.squareRoot(firstNumber);
 		Double expected = 4D;
