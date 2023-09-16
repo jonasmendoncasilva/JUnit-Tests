@@ -1,14 +1,18 @@
 package br.com.erudio.math;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("Test Math Operations in SimpleMath class")
 class SimpleMathTest {
 
 	SimpleMath math = new SimpleMath();
 	
 	@Test
-	void testSum() {
+	@DisplayName("Test 6.2 + 2 = 8")
+	void testSum_SixDotTwoPlusTwo_ShouldReturnEight() {
 		double firstNumber = 6.2D;
 		double secondNumber = 2D;
 		Double result = math.sum(firstNumber, secondNumber);
@@ -20,6 +24,7 @@ class SimpleMathTest {
 	}
 
 	@Test
+	@DisplayName("Test 6.2 - 2 = 4.2")
 	void testSubtraction() {
 		double firstNumber = 6.2D;
 		double secondNumber = 2D;
@@ -32,6 +37,7 @@ class SimpleMathTest {
 	}
 
 	@Test
+	@DisplayName("Test 6.2 * 2 = 12.4")
 	void testMultiplication() {
 		double firstNumber = 6.2D;
 		double secondNumber = 2D;
@@ -44,6 +50,7 @@ class SimpleMathTest {
 	}
 	
 	@Test
+	@DisplayName("Test 6.2 / 2 = 3.1")
 	void testDivision() {
 		double firstNumber = 6.2D;
 		double secondNumber = 2D;
@@ -58,6 +65,7 @@ class SimpleMathTest {
 	}
 	
 	@Test
+	@DisplayName("Test (6.2 + 2)/2 = 4.1")
 	void testMean() {
 		double firstNumber = 6.2D;
 		double secondNumber = 2D;
@@ -70,6 +78,7 @@ class SimpleMathTest {
 	}
 	
 	@Test
+	@DisplayName("Test sqrt(16) = 4")
 	void testSquareRoot() {
 		double firstNumber = 16D;
 		Double result = math.squareRoot(firstNumber);
