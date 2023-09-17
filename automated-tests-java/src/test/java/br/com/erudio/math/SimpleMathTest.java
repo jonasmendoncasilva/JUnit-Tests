@@ -87,9 +87,26 @@ class SimpleMathTest {
 		
 		assertEquals(expected, result, () -> firstNumber + " divide(/) " + secondNumber + "did not produce 8.2");
 		assertNotEquals(9.2, result);
-		assertNotEquals(0, secondNumber);
 		assertNotNull(result);
-		assertNotNull(secondNumber);
+	}
+	
+	@Test
+	@DisplayName("Test division by zero")
+	void testDivision_When_FirstNumberIsDividedByZero_ShouldThrowAritmetcException() {
+		
+		//Given
+		double firstNumber = 6.2D;
+		double secondNumber = 0D;
+	
+		var expectedMessage = "Impossible to divide by zero";
+		
+		//When && Then
+		ArithmeticException actual = assertThrows(ArithmeticException.class, ()-> {
+
+		math.division(firstNumber, secondNumber);
+		},() -> "Division by zero should throw an ArithmeticException");
+	
+		assertEquals(expectedMessage, actual.getMessage(), ()->"Unexpected exception message! ");
 	}
 	
 	@Test
