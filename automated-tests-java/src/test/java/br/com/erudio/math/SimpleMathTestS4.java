@@ -14,6 +14,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 @DisplayName("Test Math Operations in SimpleMath class")
 class SimpleMathTestS4 {
@@ -23,6 +24,13 @@ class SimpleMathTestS4 {
 	@BeforeAll
 	static void setup() {
 		System.out.println("Running @BeforeAll method!");
+	}
+	
+	@ParameterizedTest
+	@ValueSource(strings = {"Pelé", "Senna", "Keith Moon"})
+	void testValueSource(String firstName) {
+		System.out.println(firstName);
+		assertNotNull(firstName);
 	}
 	
 	
