@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-@Order(5)
-@TestMethodOrder(MethodOrderer.Random.class)
-class MethodOrderedRandonlyTest {
+@Order(3)
+@TestMethodOrder(MethodOrderer.MethodName.class)
+class MethodOrderedRandonlyByName {
 
 	@Test
 	void testA() {

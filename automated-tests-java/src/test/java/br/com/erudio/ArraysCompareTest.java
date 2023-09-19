@@ -1,13 +1,15 @@
 package br.com.erudio;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
+@Order(1)
 class ArraysCompareTest {
 
 	@Test
