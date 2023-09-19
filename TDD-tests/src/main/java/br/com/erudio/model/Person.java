@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Person implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private String id;
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -21,7 +21,7 @@ public class Person implements Serializable{
 		this.address = address;
 		this.gender = gender;
 	}
-	public Person(String id, String firstName, String lastName, String email, String address, String gender) {
+	public Person(Long id, String firstName, String lastName, String email, String address, String gender) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -32,11 +32,11 @@ public class Person implements Serializable{
 	public Person() {
 		
 	}
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setId(long id2) {
+		this.id = id2;
 	}
 	
 	public String getFirstName() {

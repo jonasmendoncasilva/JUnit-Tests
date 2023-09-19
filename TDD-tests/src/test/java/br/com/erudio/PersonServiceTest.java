@@ -47,6 +47,8 @@ public class PersonServiceTest {
 	void testCreatePerson_WhenSucess_ShouldContainsStringsInReturnPersonObject() {
 		
 		//Then  / Arrest
+		assertNotNull(actual.getId(), () -> "Person ID is missing!");
+		
 		assertNotNull(actual, () -> "Created Person Should not have return null");
 		assertEquals(person.getFirstName(), actual.getFirstName(), ()-> "The FirstName is different!");
 		assertEquals(person.getLastName(), actual.getLastName(), ()-> "The LastName is different!");
