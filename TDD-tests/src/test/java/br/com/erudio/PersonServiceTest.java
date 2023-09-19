@@ -1,7 +1,6 @@
 package br.com.erudio;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -20,6 +19,7 @@ public class PersonServiceTest {
 
 	Person person;
 	Person actual;
+	IPersonService service;
 	
 	@BeforeEach
 	@Order(1)
@@ -36,7 +36,7 @@ public class PersonServiceTest {
 	@Order(2)
 	void setupPersonServiceReturned() {
 		//Given / Arrange
-		IPersonService service = new PersonService();
+		service = new PersonService();
 		
 		//When  / Act
 		actual = service.createPerson(person);
@@ -63,6 +63,18 @@ public class PersonServiceTest {
 	void testCreatePerson_WhenSucess_ShouldContainsMaleOrFemaleInReturnPersonObject(String gender) {
 		//Then  / Arrest
 		assertEquals(person.getGender(), gender, () -> "The Gender is different");
+	}
+
+	@DisplayName("When Create a Person With Null Email Should Throw an Exception")
+	@Test
+	void testCreatePerson_WithNullEmail_ShouldThrowIllegalArgumentException() {
 		
+		person.setEmail(null);
+		
+		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+				()-> service.createPerson(person), 
+				()-> "Empty e-Mail should have cause an IllegalArgumentException!");
+	
+		assertEquals("Person Email is empty", exception.getMessage(), ()-> "Message is not the same!");
 	}
 }
