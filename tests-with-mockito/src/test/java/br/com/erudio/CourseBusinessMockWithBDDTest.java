@@ -4,11 +4,13 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import br.com.erudio.service.CourseService;
@@ -50,6 +52,21 @@ class CourseBusinessMockWithBDDTest {
 		
 		//Then / Assert
 		assertThat(filteredCourses.size(), is(4));
+		
+	}
+	
+	@DisplayName("Delete Courses not Related Spring using Mockito should call Method deleteCourse")
+	@Test
+	void testDeleteCoursesNotRelatedToSpring_UsingMockitoVerify_Should_CallMethod_deleteCourse() {
+		
+		//Given / Arrange
+		given(mockService.retrieveCourses("Jonas")).willReturn(courses);
+		
+		//When / Act
+		business.deleteCoursesNotRelatedToSpring("Jonas");
+		
+		//Then / Assert
+		verify(mockService).deleteCourse("Agile Desmistificado com Scrum, XP, Kanban e Trello");
 		
 	}
 }
