@@ -2,7 +2,7 @@ package br.com.erudio;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -67,6 +67,21 @@ class CourseBusinessMockWithBDDTest {
 		
 		//Then / Assert
 		verify(mockService).deleteCourse("Agile Desmistificado com Scrum, XP, Kanban e Trello");
+		
+	}
+	@DisplayName("Delete Courses not Related Spring using Mockito should call Method deleteCourse V2")
+	@Test
+	void testDeleteCoursesNotRelatedToSpring_UsingMockitoVerify_Should_CallMethod_deleteCourseV2() {
+		
+		//Given / Arrange
+		given(mockService.retrieveCourses("Jonas")).willReturn(courses);
+		
+		//When / Act
+		business.deleteCoursesNotRelatedToSpring("Jonas");
+		
+		//Then / Assert
+		then(mockService).should().deleteCourse("Agile Desmistificado com Scrum, XP, Kanban e Trello");
+		then(mockService).should(never()).deleteCourse("REST API's RESTFul do 0 à AWS com Spring Boot 3 Kotlin e Docker");
 		
 	}
 }
