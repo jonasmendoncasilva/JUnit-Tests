@@ -1,6 +1,8 @@
 package br.com.erudio;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -42,5 +44,19 @@ public class ListTest {
 		
 		// When / Act & Then / Assert
 		assertEquals("erudio", list.get(0));
+	}
+	@Test
+	void testMockingList_When_ThrowsAnException() {
+		
+		//Given / Arrange
+		var list = mock(List.class);
+		when(list.get(anyInt())).thenThrow(new RuntimeException("Foo Bar"));
+		
+		// When / Act & Then / Assert
+		assertThrows(RuntimeException.class, 
+			() -> {
+			list.get(anyInt());
+			}, 
+			() -> "Should have an RunTimeException");
 	}
 }
