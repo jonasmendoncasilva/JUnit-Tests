@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import br.com.erudio.service.CourseService;
 import br.com.erudio.service.stub.CourseServiceStub;
 
-class CourseBusinessTest {
+class CourseBusinessStubTest {
 
 	
 	@Test
@@ -33,7 +33,7 @@ class CourseBusinessTest {
 		var filteredCourses = business.retrieveCourseRelatedToSpring("Foo Bar");
 		
 		//Then / Assert
-		assertEquals(4, filteredCourses.size());
+		assertEquals(0, filteredCourses.size());
 		
 	}
 }
