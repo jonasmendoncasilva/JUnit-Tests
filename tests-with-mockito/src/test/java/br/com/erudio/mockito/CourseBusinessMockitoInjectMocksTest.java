@@ -44,9 +44,6 @@ class CourseBusinessMockitoInjectMocksTest {
 	void setup() {
 		
 		//Given / Arrange
-		
-		
-	
 		courses = Arrays.asList(
 				"REST API's RESTFul do 0 à Azure com ASP.NET Core 5 e Docker",
                 "Agile Desmistificado com Scrum, XP, Kanban e Trello",
@@ -69,8 +66,7 @@ class CourseBusinessMockitoInjectMocksTest {
 		given(mockService.retrieveCourses("Jonas")).willReturn(courses);
 		
 		//ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
-		
-		
+			
 		//When / Act
 		business.deleteCoursesNotRelatedToSpring("Jonas");
 		
